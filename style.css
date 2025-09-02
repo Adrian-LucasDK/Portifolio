@@ -1,0 +1,1049 @@
+/* Importação de Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+/* Variáveis CSS para Cores (Modo Claro) */
+:root {
+    --primary-color: #673AB7;
+    /* Deep Purple */
+    --secondary-color: #FFC107;
+    /* Amber */
+    --text-color: #212121;
+    --text-secondary-color: #424242;
+    --background-color: #F5F5F5;
+    --background-light-color: #EEEEEE;
+    --card-background: #FFFFFF;
+    --border-color: #DDD;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-hover-color: rgba(0, 0, 0, 0.2);
+    --header-bg: #2c3e50;
+    /* Mantido para o cabeçalho padrão */
+    --header-text: #fff;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--header-text);
+    transition: color 0.5s ease;
+}
+
+/* Variáveis CSS para Cores (Modo Escuro) */
+body.dark-mode {
+    --primary-color: #BB86FC;
+    /* Light Purple for dark mode */
+    --secondary-color: #FFD740;
+    /* Lighter Amber for dark mode */
+    --text-color: #E0E0E0;
+    --text-secondary-color: #B0B0B0;
+    --background-color: #121212;
+    --background-light-color: #1E1E1E;
+    --card-background: #2C2C2C;
+    --border-color: #444;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-hover-color: rgba(0, 0, 0, 0.6);
+    --header-bg: #1E1E1E;
+    /* Darker header for dark mode */
+    --header-text: #E0E0E0;
+}
+
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    /* Transição para modo escuro */
+}
+
+/* Logo */
+header nav .logo img {
+    height: 150px; /* Aumente o tamanho do logo */
+    width: auto;  /* Mantém proporção */
+    display: block;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho / Navegação */
+header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 1rem 0;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 5px;
+    /* Espaço para o indicador ativo */
+    position: relative;
+    text-align: center;
+    line-height: 1.2;
+    white-space: normal;
+}
+
+header nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Indicador de Seção Ativa */
+header nav ul li a.active {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+header nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+
+/* Botão de Modo Escuro */
+#darkModeToggle {
+    background: none;
+    border: none;
+    color: var(--header-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    outline: none;
+    /* Remove o contorno padrão ao focar */
+}
+
+#darkModeToggle:hover {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+#darkModeToggle:focus-visible {
+    /* Estilo de foco para acessibilidade */
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+
+/* Seções Gerais */
+.section {
+    padding: 80px 0;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    transition: color 0.5s ease;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+    transition: background-color 0.5s ease;
+}
+
+.bg-light {
+    background-color: var(--background-light-color);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    margin: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 2px solid var(--primary-color);
+}
+
+.btn.primary:hover {
+    background-color: darken(var(--primary-color), 10%);
+    /* Escurece um pouco */
+    border-color: darken(var(--primary-color), 10%);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn.secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Seção Início (Hero) */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 150px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+    /* Para as animações */
+    overflow: hidden;
+    /* Para garantir que as animações não causem scroll */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.hero-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #f0f0f0;
+}
+
+/* Animações de Entrada para Hero */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+    /* Garante que o elemento esteja invisível antes da animação */
+}
+
+.animate-fade-in.delay-1 {
+    animation-delay: 0.3s;
+}
+
+.animate-fade-in.delay-2 {
+    animation-delay: 0.6s;
+}
+
+.animate-fade-in.delay-3 {
+    animation-delay: 0.9s;
+}
+
+
+/* Seção Sobre Mim */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    text-align: left;
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--text-secondary-color);
+}
+
+.about-text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.about-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-text ul li {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: var(--text-secondary-color);
+}
+
+.about-image {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 8px solid var(--secondary-color);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: border-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+/* Seção Experiência (Timeline) */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    transition: background-color 0.5s ease;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: var(--background-color);
+    border: 4px solid var(--secondary-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -16px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--card-background);
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: var(--text-secondary-color);
+}
+
+.timeline-date {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Seção Formação Acadêmica */
+.education-item {
+    background-color: var(--card-background);
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    text-align: left;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.education-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.education-item h4 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.education-item p {
+    font-size: 1.1rem;
+    color: var(--text-secondary-color);
+}
+
+/* Seção Projetos */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px var(--shadow-hover-color);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin: 20px 20px 10px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: var(--text-secondary-color);
+    padding: 0 20px 10px;
+}
+
+.project-card .project-tech {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0 20px 20px;
+}
+
+.project-card .btn.small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    margin: 0 20px 20px;
+}
+
+/* Seção Habilidades */
+.skills-category {
+    margin-bottom: 50px;
+}
+
+.skills-category h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skills-list li {
+    background-color: var(--card-background);
+    padding: 15px 25px;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    font-size: 1.1rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.skills-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px var(--shadow-hover-color);
+}
+
+.skills-list li i {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    transition: color 0.5s ease;
+}
+
+/* Seção Cursos */
+.courses-list {
+    text-align: left;
+}
+
+.courses-list h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+    display: inline-block;
+    transition: color 0.5s ease, border-color 0.5s ease;
+}
+
+.courses-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.courses-list ul li {
+    background-color: var(--card-background);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px var(--shadow-color);
+    font-size: 1.05rem;
+    color: var(--text-secondary-color);
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+/* Seção Contato */
+.contact-intro {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: var(--text-secondary-color);
+}
+
+.contact-info {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+.contact-info i {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--secondary-color);
+    transition: color 0.5s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-info a i:hover {
+    color: var(--primary-color);
+    /* cor ao passar mouse */
+    transform: scale(1.2);
+}
+
+/* Ícone de e-mail sempre com cor de hover e não clicável */
+.contact-info .email-icon {
+    color: var(--primary-color);
+    /* mesma cor do hover */
+    cursor: default;
+    /* cursor normal */
+    transform: none !important;
+    /* sem efeito de zoom */
+}
+
+.social-links {
+    margin-bottom: 40px;
+}
+
+.social-links a {
+    display: inline-block;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    text-align: left;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-color);
+    /* Para se adaptar ao dark mode */
+    color: var(--text-color);
+    transition: border-color 0.3s ease, background-color 0.5s ease, color 0.5s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.contact-form button {
+    width: auto;
+    cursor: pointer;
+    border: none;
+}
+
+.form-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary-color);
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Botão Voltar ao Topo */
+#backToTopBtn {
+    display: none;
+    /* Escondido por padrão */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#backToTopBtn:hover {
+    background-color: darken(var(--primary-color), 10%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--shadow-hover-color);
+}
+
+#backToTopBtn:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+
+/* Rodapé */
+footer {
+    background: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9rem;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Animações de Rolagem (Intersection Observer) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    #darkModeToggle {
+        position: absolute;
+        top: 1rem;
+        right: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1;
+        /* Coloca a imagem acima do texto no mobile */
+        margin-bottom: 30px;
+    }
+
+    .timeline::before {
+        left: 20px;
+        /* Move a linha para a esquerda */
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        /* Espaço para a linha e o círculo */
+        padding-right: 10px;
+        text-align: left;
+    }
+
+    .timeline-item::after {
+        left: 13px;
+        /* Alinha o círculo com a linha */
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+        /* Alinha todos os itens à esquerda */
+    }
+
+    .timeline-item:nth-child(even)::after {
+        left: 13px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-list li {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .social-links a {
+        font-size: 2rem;
+        margin: 0 10px;
+    }
+
+    #backToTopBtn {
+        bottom: 20px;
+        right: 20px;
+        font-size: 20px;
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p,
+    .about-text ul li,
+    .education-item p,
+    .courses-list ul li {
+        font-size: 0.95rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .timeline-content h4 {
+        font-size: 1rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .skills-category h3 {
+        font-size: 1.6rem;
+    }
+}
+/* Botão GitHub nos cards de projeto */
+.project-card .github-link {
+    display: inline-flex;           /* Mantém ícone e texto alinhados */
+    align-items: center;            /* Alinha verticalmente ícone + texto */
+    gap: 8px;                       /* Espaço entre ícone e texto */
+    margin-top: 0px;                /* Espaço entre texto e botão (reduzido) */
+    margin-bottom: 10px;            /* Espaço entre botão e final do card */
+    padding: 6px 12px;              /* Pequeno padding interno do botão */
+    text-decoration: none;          /* Remove sublinhado */
+    color: var(--secondary-color);
+    font-weight: 500;
+    align-self: flex-start;         /* Alinha com o início do conteúdo */
+}
+/* Hover */
+.project-card .github-link:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+/* Evitar efeito de foco/active */
+.project-card .github-link:focus,
+.project-card .github-link:active {
+    outline: none;
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative; /* importante para o menu mobile absoluto */
+}
+
+/* Container dos botões (tema + mobile) */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botão menu mobile */
+#mobileMenuToggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--header-text); /* usa a mesma cor do texto da navbar */
+}
+
+@media (max-width: 768px) {
+    header nav {
+        display: flex;
+        justify-content: space-between; /* logo à esquerda, botões à direita */
+        align-items: center;
+        position: relative; /* necessário para menu absoluto */
+    }
+
+    /* Logo à esquerda */
+    header nav .logo {
+        flex-shrink: 0;
+    }
+
+    /* Container de botões (tema + menu) à direita */
+    header nav .nav-buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1100; /* garante que fique acima do menu */
+    }
+
+    /* Botão menu mobile */
+    #mobileMenuToggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--header-text);
+    }
+
+    /* Menu principal escondido por padrão e absoluto */
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* abaixo da navbar inteira */
+        left: 0;
+        width: 100%; /* ocupa toda a largura do nav */
+        background-color: var(--header-bg);
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    /* Mostrar menu quando clicado */
+    header nav ul.show {
+        display: flex;
+    }
+
+    /* Itens do menu */
+    header nav ul li {
+        margin: 10px 0;
+    }
+}
