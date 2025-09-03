@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // --- 1. Smooth Scrolling para links de navegação ---
     document.querySelectorAll('nav ul li a').forEach(anchor => {
@@ -165,28 +165,24 @@ document.addEventListener('click', (e) => {
     }
 });
 
-const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+const messageIcon = formMessage.querySelector('i');
+const messageText = formMessage.querySelector('.message-text');
 
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-        // Pegando os dados do formulário
-        const formData = {
-            from_name: this.from_name.value,
-            reply_to: this.reply_to.value,
-            message: this.message.value
-        };
-
-        // Enviando via EmailJS
-        emailjs.send('service_bqc6ljj', 'template_1tmlrxg', formData)
+    emailjs.sendForm('service_bqc6ljj', 'template_1tmlrxg', this)
         .then(() => {
-            formStatus.style.color = 'green';
-            formStatus.textContent = 'Mensagem enviada com sucesso!';
+            messageIcon.className = 'fas fa-check-circle';
+            messageText.textContent = 'Obrigado pelo seu contato! Sua mensagem foi enviada com sucesso.';
+            formMessage.className = 'form-message success show';
             contactForm.reset();
         }, (error) => {
+            messageIcon.className = 'fas fa-exclamation-triangle';
+            messageText.textContent = 'Ops! Ocorreu um erro ao enviar sua mensagem. Tente novamente.';
+            formMessage.className = 'form-message error show';
             console.error('Erro:', error);
-            formStatus.style.color = 'red';
-            formStatus.textContent = 'Erro ao enviar a mensagem. Tente novamente.';
         });
-    });
+});
