@@ -66,8 +66,10 @@ body {
 
 /* Logo */
 header nav .logo img {
-    height: 150px; /* Aumente o tamanho do logo */
-    width: auto;  /* Mantém proporção */
+    height: 150px;
+    /* Aumente o tamanho do logo */
+    width: auto;
+    /* Mantém proporção */
     display: block;
 }
 
@@ -940,30 +942,44 @@ footer {
         font-size: 1.6rem;
     }
 }
+
 /* Botão GitHub nos cards de projeto */
 .project-card .github-link {
-    display: inline-flex;           /* Mantém ícone e texto alinhados */
-    align-items: center;            /* Alinha verticalmente ícone + texto */
-    gap: 8px;                       /* Espaço entre ícone e texto */
-    margin-top: 0px;                /* Espaço entre texto e botão (reduzido) */
-    margin-bottom: 10px;            /* Espaço entre botão e final do card */
-    padding: 6px 12px;              /* Pequeno padding interno do botão */
-    text-decoration: none;          /* Remove sublinhado */
+    display: inline-flex;
+    /* Mantém ícone e texto alinhados */
+    align-items: center;
+    /* Alinha verticalmente ícone + texto */
+    gap: 8px;
+    /* Espaço entre ícone e texto */
+    margin-top: 0px;
+    /* Espaço entre texto e botão (reduzido) */
+    margin-bottom: 10px;
+    /* Espaço entre botão e final do card */
+    padding: 6px 12px;
+    /* Pequeno padding interno do botão */
+    text-decoration: none;
+    /* Remove sublinhado */
     color: var(--secondary-color);
     font-weight: 500;
-    align-self: flex-start;         /* Alinha com o início do conteúdo */
+    margin-left: auto;
+    /* Centralização */
+    margin-right: auto;
+    /* Centralização */
 }
+
 /* Hover */
 .project-card .github-link:hover {
     color: var(--primary-color);
     text-decoration: none;
 }
+
 /* Evitar efeito de foco/active */
 .project-card .github-link:focus,
 .project-card .github-link:active {
     outline: none;
     text-decoration: none;
 }
+
 
 header nav {
     display: flex;
@@ -972,7 +988,8 @@ header nav {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
-    position: relative; /* importante para o menu mobile absoluto */
+    position: relative;
+    /* importante para o menu mobile absoluto */
 }
 
 /* Container dos botões (tema + mobile) */
@@ -989,73 +1006,258 @@ header nav {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--header-text); /* usa a mesma cor do texto da navbar */
+    color: var(--header-text);
+    /* usa a mesma cor do texto da navbar */
 }
 
 /* Seção Currículo */
 #cv {
-  text-align: center;
-  padding: 80px 20px;
+    text-align: center;
+    padding: 80px 20px;
 }
 
 #cv .section-title {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-color);
 }
 
 #cv .section-subtitle {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto 30px auto;
-  color: var(--text-color);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: var(--text-color);
 }
 
 .cv-actions {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
 }
 
 .cv-actions .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-  padding: 14px 24px;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .cv-actions .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .btn.primary {
-  background: var(--secondary-color);
-  color: #fff;
-  border: none;
+    background: var(--secondary-color);
+    color: #fff;
+    border: none;
 }
 
 .btn.secondary {
-  background: transparent;
-  border: 2px solid var(--secondary-color);
-  color: var(--secondary-color);
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
 }
+
+
+
+
+/* Centraliza todo o conteúdo da timeline-item */
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centraliza horizontalmente logo + timeline-content */
+    margin-bottom: 40px;
+}
+
+/* Centraliza o conteúdo interno */
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centraliza textos dentro do conteúdo */
+    text-align: center;
+    /* centraliza textos */
+}
+
+/* Link da empresa com logo */
+.company-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    /* espaço entre logo e textos */
+    transition: transform 0.3s ease;
+}
+
+.company-link img {
+    width: auto;
+    /* tamanho natural */
+    max-width: 100px;
+    /* limite máximo */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    /* centraliza horizontalmente */
+    transition: transform 0.3s ease;
+}
+
+.company-link:hover img {
+    transform: scale(1.15);
+}
+
+
+
+.institution-link img {
+    width: 150px;
+    /* ajuste conforme necessário */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    /* centraliza horizontalmente */
+    transition: transform 0.3s ease;
+}
+
+.institution-link:hover img {
+    transform: scale(1.15);
+}
+
+/* Mantém espaçamento entre os itens de educação */
+.education-item {
+    margin-bottom: 40px;
+    text-align: center;
+    /* centraliza todo o conteúdo do item */
+}
+
+
+
+.tech-logos {
+    display: flex;
+    justify-content: center;
+    /* Centraliza os logos */
+    gap: 12px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.tech-logos img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.tech-logos img:hover {
+    transform: scale(1.15);
+}
+
+/* Container do título do prêmio com logo */
+.award-title {
+    display: flex;
+    align-items: center;
+    /* centraliza verticalmente logo e título */
+    gap: 4px;
+    /* espaço mínimo entre título e logo */
+    margin-bottom: 8px;
+    /* espaço entre título e descrição */
+
+}
+
+/* Título do prêmio */
+.award-title h3 {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    /* remove padding lateral */
+    padding: 0 20px 10px;
+}
+
+/* Logo da instituição com efeito igual às tecnologias */
+.award-institution-logo-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.award-institution-logo-link img {
+    height: 30px;
+    /* tamanho fixo conforme solicitado */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.award-institution-logo-link:hover img {
+    transform: scale(1.15);
+    /* mesmo efeito de zoom das tecnologias */
+}
+
+
+/* Logos das tecnologias usadas */
+.award-tech-logos {
+    display: flex;
+    justify-content: center;
+    /* centraliza os logos */
+    gap: 12px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.award-tech-logos a img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.award-tech-logos a:hover img {
+    transform: scale(1.15);
+}
+
+/* Container da logo da instituição ao lado do curso */
+.course-item {
+    display: flex;
+    align-items: center;         /* alinha verticalmente texto + logo */
+    gap: 8px;                     /* espaço entre texto e logo */
+    margin-bottom: 8px;           /* espaçamento entre cursos */
+}
+
+.course-item span {
+    flex: 1;                      /* permite que o texto ocupe o restante do espaço */
+}
+
+.course-institution-link {
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.course-institution-link img {
+    height: 50px;                 /* mantém proporção discreta */
+    width: auto;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.course-institution-link:hover img {
+    transform: scale(1.15);       /* efeito igual das tech-logos */
+}
+
+
 
 @media (max-width: 768px) {
     header nav {
         display: flex;
-        justify-content: space-between; /* logo à esquerda, botões à direita */
+        justify-content: space-between;
+        /* logo à esquerda, botões à direita */
         align-items: center;
-        position: relative; /* necessário para menu absoluto */
+        position: relative;
+        /* necessário para menu absoluto */
     }
 
     /* Logo à esquerda */
@@ -1068,7 +1270,8 @@ header nav {
         display: flex;
         align-items: center;
         gap: 10px;
-        z-index: 1100; /* garante que fique acima do menu */
+        z-index: 1100;
+        /* garante que fique acima do menu */
     }
 
     /* Botão menu mobile */
@@ -1086,12 +1289,14 @@ header nav {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%; /* abaixo da navbar inteira */
+        top: 100%;
+        /* abaixo da navbar inteira */
         left: 0;
-        width: 100%; /* ocupa toda a largura do nav */
+        width: 100%;
+        /* ocupa toda a largura do nav */
         background-color: var(--header-bg);
         padding: 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
     }
 
@@ -1104,8 +1309,29 @@ header nav {
     header nav ul li {
         margin: 10px 0;
     }
-     .hero {
+
+    .hero {
         padding-left: 25px;
         padding-right: 25px;
     }
+    .award-title {
+        flex-direction: row;       /* mantém horizontal */
+        flex-wrap: nowrap;         /* impede quebra de linha */
+        justify-content: flex-start; /* alinha ao início do card */
+        gap: 6px;                  /* pequeno espaço entre título e logo */
+    }
+
+    .award-title h3 {
+        font-size: 1.4rem;        /* reduz um pouco no mobile se necessário */
+        margin: 0;
+    }
+
+    .award-institution-logo-link img {
+        height: 25px;             /* reduz o tamanho da logo no mobile */
+        width: auto;
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
+    
+
